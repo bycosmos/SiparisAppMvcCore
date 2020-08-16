@@ -1,0 +1,53 @@
+﻿@model SiparisApp.Web.Models.AnasayfaSliderEkleDüzenle
+
+@{
+    ViewData["Title"] = "SliderDüzenle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid">
+
+    <div class="col-md-12 text-center">
+
+        <h1>Slider Düzenle</h1>
+
+
+        <hr />
+    </div>
+
+
+    <div class="col-md-12">
+        <form method="post" enctype="multipart/form-data" asp-controller="Anasayfa" asp-action="SliderDüzenle">
+
+            <div class="form-group">
+                Resim Id Numarası
+                <input asp-for="Slider.Id" readonly class="form-control" />
+                <span asp-validation-for="Slider.Id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                Resim Adı
+                <input asp-for="Slider.ResimAdres" readonly class="form-control" />
+                <span asp-validation-for="Slider.ResimAdres" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+
+                <input type="file" name="file" id="file" class="form-control" /><br />
+                <span class="glyphicon glyphicon-info-sign">&nbsp;</span>
+                <span><i>Lütfen jpg, jpeg ya da png formatı kullanın.</i></span>
+
+            </div>
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <input type="submit" value="Kaydet" class="btn btn-primary" />
+            </div>
+
+        </form>
+
+    </div>
+
+
+</div>
+
+
+

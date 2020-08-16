@@ -1,0 +1,132 @@
+﻿<header>
+    <!-- Header Start -->
+    <div class="header-area gray-bg">
+        <div class="main-header ">
+            <div class="header-top">
+                <div class="container">
+                    <div class="col-xl-12">
+                        <div class="row d-flex justify-content-between align-items-center">
+                            <div class="header-info-left ml-4 ml-sm-0">
+                                <ul>
+                                    <li><i class="fas fa-phone"></i> +90 531 812 06 98</li>
+                                    <li><i class="far fa-envelope"></i>oztuglafab@gmail.com</li>
+                                </ul>
+                            </div>
+                            <div id="navi" class="header-info-right">
+
+
+
+                                @if (User.Identity.IsAuthenticated)
+                                {
+
+
+                                    <a asp-controller="Account" asp-action="Manage" class="nav">
+                                        @User.Identity.Name
+                                    </a>
+                                
+
+
+                                    <a asp-controller="Account" asp-action="Logout" class="nav">Logout</a>
+                                }
+                                else
+                                {
+
+                                    <a asp-controller="Account" asp-action="Login" class="nav"><i class="fas fa-sign-out-alt"></i> Giriş</a>
+
+
+                                    <a asp-controller="Account" asp-action="Register" class="nav"><i class="fas fa-user-plus"></i> Kayıt</a>
+                                }
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="header-bottom header-sticky">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <!-- Logo -->
+                        <div class="col-xl-2 col-lg-2">
+                            <div class="logo">
+                                <a href="index.html"><img src="~/img/logo/logo.png" alt=""></a>
+                            </div>
+                        </div>
+                        <div class="col-xl-9 col-lg-8">
+                            <div class="menu-wrapper  d-flex align-items-center">
+                                <!-- Main-menu -->
+                                <div class="main-menu d-none d-lg-block">
+                                    <nav>
+                                        <ul id="navigation">
+                                            <li class="active">
+                                                <a href="/Anasayfa">Anasayfa</a>
+                                                <ul class="submenu">
+                                                    <li><a href="/SliderEkle">Slider Resmi Ekle-Düzenle</a></li>
+                                                  
+                                                </ul>
+                                            </li>
+                                            
+                                            <li>
+                                            <a href="/Hakkimizda">Hakkımızda</a>
+                                            
+                                            </li>
+                                            <li>
+                                                <a href="/Urunler" class="nav-link">Ürünler</a>
+                                                <ul class="submenu">
+
+                                                    <li><a href="/UrunDuzenleSil">Urun Listesi</a></li>
+                                                    <li><a href="/UrunEkle">Urun Ekle</a></li>
+                                                    <li><a href="/KategoriListele">Kategori Listesi</a></li>
+                                                    <li><a href="/KategoriEkle">Kategori Ekle</a></li>
+
+
+                                                </ul>
+
+                                            </li>
+                                            <li><a href="/Galeri">Galeri</a></li>
+                                            <li>
+                                                <a href="/Bayiler">Bayiler</a>
+                                                <ul class="submenu">
+                                                    <li><a href="/IllerListesi">İller Listesi</a></li>
+                                                    <li><a href="/IlEkle">İl Ekle</a></li>
+                                                    <li><a href="/BayiListesi">Bayi Listele</a></li>
+                                                    <li><a href="/BayiEkle">Bayi Ekle</a></li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <a href="/Iletisim">İletişim</a>
+                                                <ul class="submenu">
+                                                    <li><a href="project_details.html">Project Details</a></li>
+                                                    <li><a href="services_details.html">Services Details</a></li>
+                                                    <li><a href="elements.html">Element</a></li>
+                                                </ul>
+                                            </li>
+
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-1 col-lg-2">
+                            <!-- Search Box -->
+                            <div class="search d-none d-lg-block">
+                                <ul>
+                                    <li>
+                                        <div class="nav-search search-switch">
+                                            <span class="fas fa-search"></span>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- Mobile Menu -->
+                        <div class="col-12">
+                            <div class="mobile_menu d-block d-lg-none"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Header End -->
+</header>

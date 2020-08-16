@@ -1,0 +1,55 @@
+﻿@model SiparisApp.Web.Models.KategoriEkleDuzenleModel
+
+@{
+    ViewData["Title"] = "KategoriListele";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+    <div class="col-md-12 text-center">
+
+        <h1>KategoriDüzenle</h1>
+
+    </div>
+<div class="container-fluid">
+
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>
+                    Id
+                </th>
+                <th>
+                    Kategori Adı
+                </th>
+                <th>
+                    İşlem Türü
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.kategoris)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Isim)
+                    </td>
+                    <td>
+
+                        <a class="btn btn-primary" asp-controller="Urun"
+                           asp-action="KategoriSil"
+                           asp-route-id="@item.Id">sil</a>
+
+                        <a class="btn btn-primary" asp-controller="Urun"
+                           asp-action="KategoriDuzenle"
+                           asp-route-id="@item.Id">Düzenle</a>
+
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>

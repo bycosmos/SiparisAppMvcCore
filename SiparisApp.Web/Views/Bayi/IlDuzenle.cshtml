@@ -1,0 +1,46 @@
+﻿@model SiparisApp.Web.Models.IllerListeleEkleDuzenleModel
+
+@{
+    ViewData["Title"] = "IlDuzenle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+    <div class="col-md-12 text-center">
+        <h1>Il Duzenle</h1>
+
+       
+        <hr />
+    
+    </div>
+<div class="container-fluid">
+    <div class="col-md-12">
+        <form asp-action="IlDuzenle">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="iller.Id" class="control-label"></label>
+                <input asp-for="iller.Id" class="form-control"readonly />
+                <span asp-validation-for="iller.Id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="iller.Isim" class="control-label"></label>
+                <input asp-for="iller.Isim" class="form-control" required />
+                <span asp-validation-for="iller.Isim" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="iller.GosterimSirasi" class="control-label"></label>
+                <input asp-for="iller.GosterimSirasi" class="form-control" pattern="\d*" title="Bu alana sadece sayısal değer girilebilir" required />
+
+                <span asp-validation-for="iller.GosterimSirasi" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="iller.Aktif" /> @Html.DisplayNameFor(model => model.iller.Aktif)
+                </label>
+            </div>
+            <div class="form-group text-center">
+                <input type="submit" value="Güncelle" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>

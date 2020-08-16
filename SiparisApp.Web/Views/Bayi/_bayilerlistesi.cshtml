@@ -1,0 +1,50 @@
+﻿@model SiparisApp.Web.Models.BayiListeleEkleDuzenle
+
+<table class="table table-bordered table-hover table-responsive ">
+    <thead>
+        <tr>
+          
+            <th>
+                İsim
+            </th>
+            <th>
+                Telefon
+            </th>
+            <th>
+              Fax
+            </th>
+            <th>
+               Adres
+            </th>
+            <th>
+               Email
+            </th>
+          
+           
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.bayilers) {
+        <tr>
+         
+            <td>
+                @Html.DisplayFor(modelItem => item.Isim)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telefon)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fax)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Adres)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+          
+          
+        </tr>
+}
+    </tbody>
+</table>

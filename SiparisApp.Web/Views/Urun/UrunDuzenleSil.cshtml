@@ -1,0 +1,132 @@
+﻿@model SiparisApp.Web.Models.UrunEkleSilModel
+
+@{
+    ViewData["Title"] = "UrunDuzenleSil";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>UrunlDuzenleSil</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<div class="container-fluid">
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>
+                    Id
+                </th>
+                <th>
+                    Urun Kodu
+                </th>
+                <th>
+                    Urun Adı
+                </th>
+                <th>
+                    Resim
+                </th>
+                <th>
+                    Fiyat
+                </th>
+                <th>
+                    Ağırlık
+                </th>
+                <th>
+                    Başınç Dayanımı
+                </th>
+                <th>
+                    Isıl İletkenliği
+                </th>
+                <th>
+                    1 Metre deki Tuğla Sayısı
+                </th>
+                <th>
+                    Boyut
+                </th>
+                <th>
+                    1 Paletteki Tuğla Sayısı
+                </th>
+                <th>
+                    Açıklama
+                </th>
+                <th>
+                    Gösterim Sırası
+                </th>
+                <th>
+                    Aktif
+                </th>
+                <th>
+                    Kategori
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.urunler)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.UrunKodu)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Isim)
+                    </td>
+                    <td>
+                        <img src="../../img/Urunler/@item.ResimUrl" alt="Alternate Text" style="width:100px;height:100px;" />
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Fiyat)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Agirlik)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.BasincDayanimi)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IsiIletkenligi)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MetrekareTuglaSayisi)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Boyut)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PalettekiTuglaSayisi)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Aciklama)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.GosterimSirasi)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Aktif)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Kategori.Isim)
+                    </td>
+                    <td>
+
+                        <a class="btn btn-danger" asp-controller="Urun"
+                           asp-action="UrunSil"
+                           asp-route-id="@item.Id">sil</a>
+
+                        <a class="btn btn-primary" asp-controller="Urun"
+                           asp-action="UrunDuzenle"
+                           asp-route-id="@item.Id">Düzenle</a>
+
+
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>

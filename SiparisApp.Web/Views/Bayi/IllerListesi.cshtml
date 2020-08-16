@@ -1,0 +1,68 @@
+﻿@model SiparisApp.Web.Models.IllerListeleEkleDuzenleModel
+
+@{
+    ViewData["Title"] = "IllerListesi";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <div class="col-md-12 text-center">
+
+        <h1>Iller Listesi</h1>
+
+        <p>
+            <a asp-action="Create">Create New</a>
+        </p>
+    </div>
+
+<div class="container-fluid">
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>
+                    Id
+                </th>
+                <th>
+                    Adı
+                </th>
+                <th>
+                    Gösterim Sırası
+                </th>
+                <th>
+                    Aktif
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.illers)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Isim)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.GosterimSirasi)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Aktif)
+                    </td>
+                    <td>
+                        <a class="btn btn-primary" asp-controller="Bayi"
+                           asp-action="IlSil"
+                           asp-route-id="@item.Id">sil</a>
+
+                        <a class="btn btn-primary" asp-controller="Bayi"
+                           asp-action="IlDuzenle"
+                           asp-route-id="@item.Id">Düzenle</a>
+
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>

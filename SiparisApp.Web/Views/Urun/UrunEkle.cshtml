@@ -1,0 +1,118 @@
+﻿@model SiparisApp.Web.Models.UrunEkleSilModel
+
+@{
+    ViewData["Title"] = "UrunEkle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-md-12 text-center">
+
+    <h1>Urun Ekleme Sayfası</h1>
+
+
+</div>
+<hr />
+
+
+<div class="container-fluid">
+
+
+    <div class="col-md-12">
+        <form method="post" enctype="multipart/form-data" asp-controller="Urun" asp-action="UrunEkle">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                Urun Resmi
+                <input type="file" name="file" id="file" class="form-control" /><br />
+                <span class="glyphicon glyphicon-info-sign">&nbsp;</span>
+                <span><i>Lütfen jpg, jpeg ya da png formatı kullanın.</i></span>
+
+            </div>
+            <div class="form-group">
+                <label asp-for="Urun.UrunKodu" class="control-label"></label>
+                <input asp-for="Urun.UrunKodu" class="form-control" />
+                <span asp-validation-for="Urun.UrunKodu" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Urun.Isim" class="control-label"></label>
+                <input asp-for="Urun.Isim" class="form-control" />
+                <span asp-validation-for="Urun.Isim" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Urun.Fiyat" class="control-label"></label>
+                <input asp-for="Urun.Fiyat" class="form-control" />
+                <span asp-validation-for="Urun.Fiyat" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Urun.Agirlik" class="control-label"></label>
+                <input asp-for="Urun.Agirlik" class="form-control" />
+                <span asp-validation-for="Urun.Agirlik" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Urun.BasincDayanimi" class="control-label"></label>
+                <input asp-for="Urun.BasincDayanimi" class="form-control" />
+                <span asp-validation-for="Urun.BasincDayanimi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Urun.IsiIletkenligi" class="control-label"></label>
+                <input asp-for="Urun.IsiIletkenligi" class="form-control" />
+                <span asp-validation-for="Urun.IsiIletkenligi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Urun.MetrekareTuglaSayisi" class="control-label"></label>
+                <input asp-for="Urun.MetrekareTuglaSayisi" class="form-control" />
+                <span asp-validation-for="Urun.MetrekareTuglaSayisi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Urun.Boyut" class="control-label"></label>
+                <input asp-for="Urun.Boyut" class="form-control" />
+                <span asp-validation-for="Urun.Boyut" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Urun.PalettekiTuglaSayisi" class="control-label"></label>
+                <input asp-for="Urun.PalettekiTuglaSayisi" class="form-control" />
+                <span asp-validation-for="Urun.PalettekiTuglaSayisi" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group">
+                <label asp-for="Urun.Aciklama" class="control-label"></label>
+                <input asp-for="Urun.Aciklama" class="form-control" />
+                <span asp-validation-for="Urun.Aciklama" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Urun.Aciklama" class="control-label"></label>
+                <input asp-for="Urun.Aciklama" class="form-control" />
+                <span asp-validation-for="Urun.Aciklama" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Urun.GosterimSirasi" class="control-label"></label>
+                <input asp-for="Urun.GosterimSirasi" class="form-control" />
+                <span asp-validation-for="Urun.GosterimSirasi" class="text-danger"></span>
+            </div>
+
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Urun.Aktif" /> @Html.DisplayNameFor(model => model.Urun.Aktif)
+                </label>
+            </div>
+
+            <div class="form-group" >
+                <select name="katId">
+                    @foreach (var item in Model.Kat)
+                    {
+                        <option value="@item.Id">@item.Isim</option>
+                    }
+
+                </select>
+            </div>
+            <br />
+            <hr />
+
+            <div class="form-group text-center">
+                <input type="submit" value="Ürünü Oluştur" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>

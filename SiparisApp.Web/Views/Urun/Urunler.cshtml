@@ -1,0 +1,75 @@
+﻿@model SiparisApp.Web.Models.UrunListesiModel
+<!--? Categories Area Start -->
+<div class="categories-area section-padding40 ">
+    <div class="container">
+
+        <div class="row">
+            @foreach (var item in Model.UrunList)
+            {
+
+
+
+            <div class="col-lg-3 col-md-6 col-sm-6 text-center">
+                <div class="single-cat">
+                    <div class="cat-icon">
+                        <img src="../../img/Urunler/@item.ResimUrl" alt="">
+                    </div>
+                    <div class="cat-cap">
+                        <h5><a href="services.html">@item.Isim</a></h5>
+                        <table class="table table-sm table-striped table-responsive-sm text-lg-left">
+                            <tbody>
+                                <tr>
+                                    <td>Ağırlık(kg) </td>
+                                    <td>@item.Agirlik</td>
+
+                                </tr>
+                                <tr>
+                                    <td scope="row">Boyut(cm) </td>
+                                    <td>@item.Boyut </td>
+
+                                </tr>
+                                <tr>
+                                    <td scope="row">Basınç Dayanımı(N/mm) </td>
+                                    <td>@item.BasincDayanimi</td>
+
+                                </tr>
+                                <tr>
+                                    <td scope="row">Isı iletkenliği(W/mK) </td>
+                                    <td>@item.IsiIletkenligi </td>
+
+                                </tr>
+                                <tr>
+                                    <td scope="row">1 M² İçin Gereken Tuğla Sayısı (Adet) </td>
+                                    <td>@item.MetrekareTuglaSayisi </td>
+
+                                </tr>
+                                <tr>
+                                    <td scope="row">1 Paletteki Tuğla Sayısı (Adet) </td>
+                                    <td>@item.PalettekiTuglaSayisi </td>
+
+                                </tr>
+
+
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="card-footer text-center">
+                        <a asp-controller="Urun" asp-action="Urun" asp-route-id="@item.Id" class="btn alert-info btn-sm">Detay</a>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <form asp-controller="Sepet" asp-action="SepeteEkle" method="post" style="display:inline;">
+                                <input type="hidden" name="urunId" value="@item.Id" />
+                                <input type="hidden" name="quantity" value="1" />
+                                <button type="submit" class="btn alert-success btn-sm ml-3">Sepete Ekle</button>
+                            </form>
+                        }
+
+                    </div>
+                </div>
+            </div>
+            }
+        </div>
+    </div>
+</div>
+<!-- cat End -->
+
