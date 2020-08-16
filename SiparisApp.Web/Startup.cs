@@ -156,7 +156,6 @@ namespace SiparisApp.Web
                   name: "galeri",
                   pattern: "Galeri",
                   defaults: new { controller = "Galeri", action = "Galeri" });
-
                 endpoints.MapControllerRoute(
                   name: "bayiler",
                   pattern: "Bayiler",
@@ -170,80 +169,65 @@ namespace SiparisApp.Web
                   pattern: "Urunler",
                   defaults: new { controller = "Urun", action = "Urunler" });
                 endpoints.MapControllerRoute(
-               name: "urunekle",
-               pattern: "UrunEkle",
-               defaults: new { controller = "Urun", action = "UrunEkle" });
+                  name: "urunekle",
+                  pattern: "UrunEkle",
+                  defaults: new { controller = "Urun", action = "UrunEkle" });
                 endpoints.MapControllerRoute(
-               name: "urunduzenlesil",
-               pattern: "UrunDuzenleSil",
-               defaults: new { controller = "Urun", action = "UrunDuzenleSil" });
+                  name: "urunduzenlesil",
+                  pattern: "UrunDuzenleSil",
+                  defaults: new { controller = "Urun", action = "UrunDuzenleSil" });
                 endpoints.MapControllerRoute(
-         name: "urun",
-         pattern: "Urun",
-         defaults: new { controller = "Urun", action = "Urun" });
+                  name: "urun",
+                  pattern: "Urun",
+                  defaults: new { controller = "Urun", action = "Urun" });
                 endpoints.MapControllerRoute(
-                name: "kategoriekle",
-                pattern: "KategoriEkle",
-                defaults: new { controller = "Urun", action = "KategoriEkle" });
-
-
-
+                  name: "kategoriekle",
+                  pattern: "KategoriEkle",
+                  defaults: new { controller = "Urun", action = "KategoriEkle" });
                 endpoints.MapControllerRoute(
                   name: "kategori",
                   pattern: "KategoriListele",
                   defaults: new { controller = "Urun", action = "KategoriListele" });
-
                 endpoints.MapControllerRoute(
                   name: "kategori",
                   pattern: "KategoriSil",
                   defaults: new { controller = "Urun", action = "KategoriSil" });
                 endpoints.MapControllerRoute(
-                name: "kategori",
-                pattern: "KategoriDuzenle",
-                defaults: new { controller = "Urun", action = "KategoriDuzenle" });
-
+                  name: "kategori",
+                  pattern: "KategoriDuzenle",
+                  defaults: new { controller = "Urun", action = "KategoriDuzenle" });
                 endpoints.MapControllerRoute(
-            name: "sepet",
-            pattern: "Sepetim",
-            defaults: new { controller = "Sepet", action = "Sepetim" });
-
+                  name: "sepet",
+                  pattern: "Sepetim",
+                  defaults: new { controller = "Sepet", action = "Sepetim" });
                 endpoints.MapControllerRoute(
                   name: "urun",
                   pattern: "Hakkimizda",
                   defaults: new { controller = "Hakkimizda", action = "Hakkimizda" });
-
                 endpoints.MapControllerRoute(
                   name: "bayi",
                   pattern: "IllerListesi",
                   defaults: new { controller = "Bayi", action = "IllerListesi" });
                 endpoints.MapControllerRoute(
-              name: "bayi",
-              pattern: "IlEkle",
-              defaults: new { controller = "Bayi", action = "IlEkle" });
+                  name: "bayi",
+                  pattern: "IlEkle",
+                  defaults: new { controller = "Bayi", action = "IlEkle" });
                 endpoints.MapControllerRoute(
-            name: "bayi",
-            pattern: "IlDuzenle",
-            defaults: new { controller = "Bayi", action = "IlDuzenle" });
+                  name: "bayi",
+                  pattern: "IlDuzenle",
+                  defaults: new { controller = "Bayi", action = "IlDuzenle" });
                 endpoints.MapControllerRoute(
                   name: "bayi",
                   pattern: "BayiListesi",
                   defaults: new { controller = "Bayi", action = "BayiListesi" });
-
                 endpoints.MapControllerRoute(
-           name: "bayi",
-           pattern: "BayiEkle",
-           defaults: new { controller = "Bayi", action = "BayiEkle" }); 
+                  name: "bayi",
+                  pattern: "BayiEkle",
+                  defaults: new { controller = "Bayi", action = "BayiEkle" }); 
                 endpoints.MapControllerRoute(
-           name: "bayi",
-           pattern: "BayiDuzenle",
-           defaults: new { controller = "Bayi", action = "BayiDuzenle" });
-
-
-
-
-
-
-
+                  name: "bayi",
+                  pattern: "BayiDuzenle",
+                  defaults: new { controller = "Bayi", action = "BayiDuzenle" });
                 endpoints.MapControllerRoute(
                    name: "kayit",
                    pattern: "Register",
@@ -261,18 +245,13 @@ namespace SiparisApp.Web
                   pattern: "SliderEkle",
                   defaults: new { controller = "Anasayfa", action = "SliderEkle" });
                 endpoints.MapControllerRoute(
-                  name: "sliderdüzenle",
-                  pattern: "SliderDüzenle",
-                  defaults: new { controller = "Anasayfa", action = "SliderDüzenle" });
-
+                  name: "sliderdÃ¼zenle",
+                  pattern: "SliderDÃ¼zenle",
+                  defaults: new { controller = "Anasayfa", action = "SliderDÃ¼zenle" });
                 endpoints.MapControllerRoute(
                    name: "default",
                    pattern: "{controller=Home}/{action=Index}/{id?}");
-
-                
-
-
-            });
+         });
            
 
 
