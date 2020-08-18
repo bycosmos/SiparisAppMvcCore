@@ -47,11 +47,11 @@ namespace SiparisApp.Web
             {
               
 
-                options.Password.RequireDigit = true;
-                options.Password.RequireLowercase = true; 
-                options.Password.RequiredLength = 6;
-                options.Password.RequireNonAlphanumeric = true;
-                options.Password.RequireUppercase = true;
+                options.Password.RequireDigit = false;
+                options.Password.RequireLowercase = false; 
+                options.Password.RequiredLength = 3;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireUppercase = false;
 
                 options.Lockout.MaxFailedAccessAttempts = 5;
                 options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
@@ -116,11 +116,14 @@ namespace SiparisApp.Web
 
             services.AddScoped<IMyEmailSender, SmtpEmailSender>(
                 i => new SmtpEmailSender(
-                   "smtp.gmail.com",
-                   587,
-                    true,
-                   "aliveliav122212121121@gmail.com",
-                    "muhammetB1")
+
+                    Configuration["EmailSender:Host"],
+                    Configuration.GetValue<int>("EmailSender:Port"),
+                    Configuration.GetValue<bool>("EmailSender:EnableSSL"),
+                    Configuration["EmailSender:UserName"],
+                    Configuration["EmailSender:Password"])
+
+                    
                 );
 
             services.AddControllersWithViews();
@@ -156,6 +159,7 @@ namespace SiparisApp.Web
                   name: "galeri",
                   pattern: "Galeri",
                   defaults: new { controller = "Galeri", action = "Galeri" });
+
                 endpoints.MapControllerRoute(
                   name: "bayiler",
                   pattern: "Bayiler",
@@ -169,25 +173,29 @@ namespace SiparisApp.Web
                   pattern: "Urunler",
                   defaults: new { controller = "Urun", action = "Urunler" });
                 endpoints.MapControllerRoute(
-                  name: "urunekle",
-                  pattern: "UrunEkle",
-                  defaults: new { controller = "Urun", action = "UrunEkle" });
+                 name: "urunekle",
+                 pattern: "UrunEkle",
+                 defaults: new { controller = "Urun", action = "UrunEkle" });
                 endpoints.MapControllerRoute(
-                  name: "urunduzenlesil",
-                  pattern: "UrunDuzenleSil",
-                  defaults: new { controller = "Urun", action = "UrunDuzenleSil" });
+                 name: "urunduzenlesil",
+                 pattern: "UrunDuzenleSil",
+                 defaults: new { controller = "Urun", action = "UrunDuzenleSil" });
                 endpoints.MapControllerRoute(
-                  name: "urun",
-                  pattern: "Urun",
-                  defaults: new { controller = "Urun", action = "Urun" });
-                endpoints.MapControllerRoute(
-                  name: "kategoriekle",
-                  pattern: "KategoriEkle",
-                  defaults: new { controller = "Urun", action = "KategoriEkle" });
+                 name: "urun",
+                 pattern: "Urun",
+                 defaults: new { controller = "Urun", action = "Urun" });
+               endpoints.MapControllerRoute(
+                 name: "kategoriekle",
+                 pattern: "KategoriEkle",
+                 defaults: new { controller = "Urun", action = "KategoriEkle" });
+
+
+
                 endpoints.MapControllerRoute(
                   name: "kategori",
                   pattern: "KategoriListele",
                   defaults: new { controller = "Urun", action = "KategoriListele" });
+
                 endpoints.MapControllerRoute(
                   name: "kategori",
                   pattern: "KategoriSil",
@@ -196,14 +204,17 @@ namespace SiparisApp.Web
                   name: "kategori",
                   pattern: "KategoriDuzenle",
                   defaults: new { controller = "Urun", action = "KategoriDuzenle" });
-                endpoints.MapControllerRoute(
-                  name: "sepet",
-                  pattern: "Sepetim",
-                  defaults: new { controller = "Sepet", action = "Sepetim" });
+
+               endpoints.MapControllerRoute(
+                name: "sepet",
+                pattern: "Sepetim",
+                defaults: new { controller = "Sepet", action = "Sepetim" });
+
                 endpoints.MapControllerRoute(
                   name: "urun",
                   pattern: "Hakkimizda",
                   defaults: new { controller = "Hakkimizda", action = "Hakkimizda" });
+
                 endpoints.MapControllerRoute(
                   name: "bayi",
                   pattern: "IllerListesi",
@@ -213,22 +224,30 @@ namespace SiparisApp.Web
                   pattern: "IlEkle",
                   defaults: new { controller = "Bayi", action = "IlEkle" });
                 endpoints.MapControllerRoute(
-                  name: "bayi",
-                  pattern: "IlDuzenle",
-                  defaults: new { controller = "Bayi", action = "IlDuzenle" });
+                 name: "bayi",
+                 pattern: "IlDuzenle",
+                 defaults: new { controller = "Bayi", action = "IlDuzenle" });
                 endpoints.MapControllerRoute(
                   name: "bayi",
                   pattern: "BayiListesi",
                   defaults: new { controller = "Bayi", action = "BayiListesi" });
+
                 endpoints.MapControllerRoute(
-                  name: "bayi",
-                  pattern: "BayiEkle",
-                  defaults: new { controller = "Bayi", action = "BayiEkle" }); 
+                 name: "bayi",
+                 pattern: "BayiEkle",
+                 defaults: new { controller = "Bayi", action = "BayiEkle" }); 
                 endpoints.MapControllerRoute(
-                  name: "bayi",
-                  pattern: "BayiDuzenle",
-                  defaults: new { controller = "Bayi", action = "BayiDuzenle" });
-                endpoints.MapControllerRoute(
+                 name: "bayi",
+                 pattern: "BayiDuzenle",
+                 defaults: new { controller = "Bayi", action = "BayiDuzenle" });
+
+
+
+
+
+
+
+                 endpoints.MapControllerRoute(
                    name: "kayit",
                    pattern: "Register",
                    defaults: new { controller = "Account", action = "Register" });
@@ -248,10 +267,15 @@ namespace SiparisApp.Web
                   name: "sliderdüzenle",
                   pattern: "SliderDüzenle",
                   defaults: new { controller = "Anasayfa", action = "SliderDüzenle" });
+
                 endpoints.MapControllerRoute(
                    name: "default",
                    pattern: "{controller=Home}/{action=Index}/{id?}");
-         });
+
+                
+
+
+            });
            
 
 
